@@ -1,6 +1,11 @@
 const querystring = require('querystring')
 const { config, oauth } = require('./utils/auth')
 const { getUser } = require('./utils/netlify-api')
+const VALID_URLS = [
+    '*.techwithanirudh.tech',
+    '*.techwithanirudh.repl.co',
+    '*.techwithanirudh.repl.co/*',
+]
 
 /* Function to handle netlify auth callback */
 exports.handler = async (event, context) => {
@@ -49,6 +54,16 @@ exports.handler = async (event, context) => {
       full_name: user.full_name || "NA",
       avatar: user.avatar_url || "NA"
     })
+
+    /* Check if the url is invalid */
+    if (!VALID_URLS.some(url => url.includes(state.url))) {
+        return {
+            statusCode: 401,
+            body: JSON.stringify({
+                error: 'Not authorized',
+            })
+        }
+    }
 
     const URI = `${state.url}#${encodedUserData}&csrf=${state.csrf}&token=${Buffer.from(token, 'binary').toString('base64')}`
     console.log('URI', URI)
