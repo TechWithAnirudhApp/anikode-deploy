@@ -55,8 +55,11 @@ exports.handler = async (event, context) => {
       avatar: user.avatar_url || "NA"
     })
 
-    /* Check if the url is invalid */
-    if (!VALID_URLS.some(url => url.includes(state.url))) {
+    /* Check if the url contains any of the valid urls by matching the regex */
+    const isValidUrl = VALID_URLS.some(url => state.url.match(url))
+    
+    /* If the url is not valid, return an error */
+    if (!isValidUrl) {
         return {
             statusCode: 401,
             body: JSON.stringify({
