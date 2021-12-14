@@ -10,16 +10,6 @@ const VALID_URLS = [
 
 /* Function to handle netlify auth callback */
 exports.handler = async (event, context) => {
-  // Exit early
-  if (!event.queryStringParameters) {
-    return {
-      statusCode: 401,
-      body: JSON.stringify({
-        error: "Not authorized",
-      }),
-    };
-  }
-
   /* Grant the grant code */
   const code = event.queryStringParameters.code;
   /* state helps mitigate CSRF attacks & Restore the previous state of your app */
