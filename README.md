@@ -4,7 +4,7 @@
 
 Netlify OAuth serverless functions based on https://github.com/netlify-labs/oauth-example
 
-[![Netlify Deploy](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Ju99ernaut/netlify-oauth-serverless)
+[![Netlify Deploy](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/techwithanirudh/netlify-oauth)
 
 ## Use cases
 
@@ -29,7 +29,7 @@ Using Netlify OAuth you can create custom experiences using the [Netlify Open AP
 
 1. **Create and Deploy a new Netlify site**
 
-    You can use an [this repo](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-labs/oauth-example)
+    You can use an [this repo](https://app.netlify.com/start/deploy?repository=https://github.com/techwithanirudh/netlify-oauth)
 
 2. **[Create OAuth application](https://app.netlify.com/account/applications)**
 
